@@ -1,0 +1,14 @@
+/* Default Dark Theme */
+:root {
+    --mainColor: #121212; /* Background color for the entire site */
+    --secondaryColor: #1E1E1E; /* Slightly lighter background color for sections */
+    --mainText: #E0E0E0; /* Main text color */
+    --secondaryText: #B0B0B0; /* Secondary text color */
+    --borderColor: #333333; /* Border color for elements */
+    --themeDotBorder: #E0E0E0; /* Border color for theme dots */
+    --previewBg: rgba(50, 50, 50, 0.8); /* Background for preview elements */
+    --previewShadow: rgba(0, 0, 0, 0.5); /* Shadow for preview elements */
+    --submitBtn: #6200EE; /* Background color for buttons */
+    --linkColor: #BB86FC; /* Color for links */
+    --linkHoverColor: #3700B3; /* Color for links on hover */
+}
