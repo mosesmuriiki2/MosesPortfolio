@@ -101,6 +101,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 feedback: "Moses has been a driving force behind our tech initiatives at AfyaSoftPlus. His ability to integrate complex systems and his visionary approach to solving mental health challenges through technology are inspiring. His leadership and technical expertise have significantly contributed to our mission"
             }
         ],
+        projectsCompleted: [
+            { label: 'Backend Projects', count: 20 },
+            { label: 'Frontend Projects', count: 10 },
+            { label: 'Mobile Apps', count: 5 }
+        ],
         blog: [
             {
                 header : "The Importance of Clean Code",
@@ -182,6 +187,41 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Function to render projects completed section
+    function renderProjectsCompleted() {
+        const projectsCompletedContent = document.getElementById('projects-completed-content');
+        data.projectsCompleted.forEach(project => {
+            const projectDiv = document.createElement('div');
+            projectDiv.className = 'col-md-4 text-center';
+            projectDiv.innerHTML = `
+                <div class="counter" data-target="${project.count}">0</div>
+                <div class="label">${project.label}</div>
+            `;
+            projectsCompletedContent.appendChild(projectDiv);
+        });
+
+        // Initialize counters
+        const counters = document.querySelectorAll('.counter');
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const speed = 900000000; // change value to adjust speed
+                const increment = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(updateCount, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+
+            updateCount();
+        });
+    }
+    
+
     // Function to render blog section
     function renderBlog() {
         const blogContent = document.getElementById('blog-content');
@@ -207,6 +247,7 @@ document.addEventListener('DOMContentLoaded', function() {
     renderProjects();
     renderEducation();
     renderTestimonials();
+    renderProjectsCompleted()
     renderBlog();
     document.getElementById('contact-form').addEventListener('submit', function(e) {
         e.preventDefault();
